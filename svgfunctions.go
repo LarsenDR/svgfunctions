@@ -182,7 +182,9 @@ func SVGLine(stroke string, strokewidth, x1, y1, x2, y2 int) string {
 //SVGPoint is a function to write a point text for a graph
 func SVGPoint(fill, stroke string, strokeWidth, x, y, r int) string {
 	var pointstr string
-	pointstr = fmt.Sprintf("<g id=\"point\">\n<circle  stroke=\"%s\" stroke-width=\"%d\" fill=\"%s\" cx=\"%d\" cy=\"%d\" r=\"%d\" />\n</g>",
+	// pointstr = fmt.Sprintf("<g id=\"point\">\n<circle  stroke=\"%s\" stroke-width=\"%d\" fill=\"%s\" cx=\"%d\" cy=\"%d\" r=\"%d\" />\n</g>",
+
+	pointstr = fmt.Sprintf("<circle  stroke=\"%s\" stroke-width=\"%d\" fill=\"%s\" cx=\"%d\" cy=\"%d\" r=\"%d\" />",
 		stroke, strokeWidth, fill, x, y, r)
 	return pointstr
 }
