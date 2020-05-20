@@ -71,13 +71,14 @@ type Data struct {
 	Margs                  MarginsData
 }
 
-//ClientData is a structure to hold point to plot in graph space.
+//ClientPoint is a structure to hold point to plot in graph space.
 type ClientPoint struct {
 	X int `json:"x"`
 	Y int `json:"y"`
 	R int `json:"r"`
 }
 
+//ClientPoints is a structure containing an array of ClientPoint Structures
 type ClientPoints struct {
 	DataVals []ClientPoint
 }
