@@ -38,19 +38,20 @@ func TestSVGStart(t *testing.T) {
 
 func TestSVGRect(t *testing.T) {
 	var line = []struct {
-		Label   string
-		fill    string
-		stroke  string
-		xorg    int
-		yorg    int
-		width   int
-		height  int
-		desired string
+		Label    string
+		fill     string
+		stroke   string
+		strokewt int
+		xorg     int
+		yorg     int
+		width    int
+		height   int
+		desired  string
 	}{
-		{"t1", "white", "black", 0, 0, 500, 500, `<rect fill="white" stroke="black" x="0" y="0" width="500" height="500" />`},
+		{"t1", "white", "black", 3, 0, 0, 500, 500, `<rect fill="white" stroke="black" stroke-width="3" x="0" y="0" width="500" height="500" />`},
 	}
 	for _, tt := range line {
-		str := SVGRect(tt.fill, tt.stroke, tt.xorg, tt.yorg, tt.width, tt.height)
+		str := SVGRect(tt.fill, tt.stroke, tt.strokewt, tt.xorg, tt.yorg, tt.width, tt.height)
 		fmt.Printf("SVGRect test: %v\n", str)
 		if str != tt.desired {
 			t.Errorf("got %v   wanted %v", str, tt.desired)

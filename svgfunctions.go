@@ -165,10 +165,10 @@ func SVGGrid(stroke string, x, y, width, height, xgrid, ygrid int) string {
 }
 
 //SVGRect is that function to write a rectangle text for a graph
-func SVGRect(fill, stroke string, x, y, width, height int) string {
+func SVGRect(fill, stroke string, strokeWt, x, y, width, height int) string {
 	var rectstr string
-	rectstr = fmt.Sprintf("<rect fill=\"%s\" stroke=\"%s\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" />",
-		fill, stroke, x, y, width, height)
+	rectstr = fmt.Sprintf("<rect fill=\"%s\" stroke=\"%s\" stroke-width=\"%d\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" />",
+		fill, stroke, strokeWt, x, y, width, height)
 	return rectstr
 }
 
@@ -257,7 +257,7 @@ func ScaleMathToGraph(mval, mmin, mmax, gmin, gmax int64) (gval int64) {
 //DrawMarginTesting is a function
 func DrawMarginTesting(fill, stroke string, width, size int) (str string) {
 	//If testing this draws the margin box
-	str = SVGRect(fill, stroke, 0, 0, width, size)
+	str = SVGRect(fill, stroke, 1, 0, 0, width, size)
 	return str
 }
 
