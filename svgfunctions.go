@@ -136,9 +136,9 @@ func SVGEnd() string {
 }
 
 //SVGStart is a function to write a SVG starting text for a graph.
-func SVGStart(width, height int) string {
+func SVGStart(id string, width, height int) string {
 	var startstr string
-	startstr = fmt.Sprintf("<svg viewbox=\"0 0 1000 1000\"  width=\"%d\" height=\"%d\"  xmlns=\"http://www.w3.org/2000/svg\">", width, height)
+	startstr = fmt.Sprintf("<svg id=\"%s\" viewbox=\"0 0 1000 1000\"  width=\"%d\" height=\"%d\"  xmlns=\"http://www.w3.org/2000/svg\">", width, height)
 	return startstr
 }
 
@@ -165,9 +165,9 @@ func SVGGrid(stroke string, x, y, width, height, xgrid, ygrid int) string {
 }
 
 //SVGRect is that function to write a rectangle text for a graph
-func SVGRect(fill, stroke string, strokeWt, x, y, width, height int) string {
+func SVGRect(id, fill, stroke string, strokeWt, x, y, width, height int) string {
 	var rectstr string
-	rectstr = fmt.Sprintf("<rect fill=\"%s\" stroke=\"%s\" stroke-width=\"%d\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" />",
+	rectstr = fmt.Sprintf("<rect id=\"%s\" fill=\"%s\" stroke=\"%s\" stroke-width=\"%d\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" />",
 		fill, stroke, strokeWt, x, y, width, height)
 	return rectstr
 }
@@ -256,7 +256,7 @@ func ScaleMathToGraph(mval, mmin, mmax, gmin, gmax int64) (gval int64) {
 //DrawMarginTesting is a function
 func DrawMarginTesting(fill, stroke string, width, size int) (str string) {
 	//If testing this draws the margin box
-	str = SVGRect(fill, stroke, 1, 0, 0, width, size)
+	str = SVGRect(id, fill, stroke, 1, 0, 0, width, size)
 	return str
 }
 
