@@ -138,7 +138,7 @@ func SVGEnd() string {
 //SVGStart is a function to write a SVG starting text for a graph.
 func SVGStart(id string, width, height int) string {
 	var startstr string
-	startstr = fmt.Sprintf("<svg id=\"%s\" viewbox=\"0 0 1000 1000\"  width=\"%d\" height=\"%d\"  xmlns=\"http://www.w3.org/2000/svg\">", width, height)
+	startstr = fmt.Sprintf("<svg id=\"%s\" viewbox=\"0 0 1000 1000\"  width=\"%d\" height=\"%d\"  xmlns=\"http://www.w3.org/2000/svg\">", id, width, height)
 	return startstr
 }
 
@@ -168,7 +168,7 @@ func SVGGrid(stroke string, x, y, width, height, xgrid, ygrid int) string {
 func SVGRect(id, fill, stroke string, strokeWt, x, y, width, height int) string {
 	var rectstr string
 	rectstr = fmt.Sprintf("<rect id=\"%s\" fill=\"%s\" stroke=\"%s\" stroke-width=\"%d\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\" />",
-		fill, stroke, strokeWt, x, y, width, height)
+		id, fill, stroke, strokeWt, x, y, width, height)
 	return rectstr
 }
 
@@ -254,7 +254,7 @@ func ScaleMathToGraph(mval, mmin, mmax, gmin, gmax int64) (gval int64) {
 // LeftMargin is a set of functions to build the svg commands to draw the labels, scales and tics for the margin
 
 //DrawMarginTesting is a function
-func DrawMarginTesting(fill, stroke string, width, size int) (str string) {
+func DrawMarginTesting(id, fill, stroke string, width, size int) (str string) {
 	//If testing this draws the margin box
 	str = SVGRect(id, fill, stroke, 1, 0, 0, width, size)
 	return str

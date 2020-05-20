@@ -24,10 +24,10 @@ func TestSVGStart(t *testing.T) {
 		Height  int
 		desired string
 	}{
-		{"t1", 0, 0, 1000, 1000, `<svg viewbox="0 0 1000 1000"  width="1000" height="1000"  xmlns="http://www.w3.org/2000/svg">`},
+		{"s1", 0, 0, 1000, 1000, `<svg id="s1" viewbox="0 0 1000 1000"  width="1000" height="1000"  xmlns="http://www.w3.org/2000/svg">`},
 	}
 	for _, tt := range scdt {
-		str := SVGStart(tt.Width, tt.Height)
+		str := SVGStart(tt.Label, tt.Width, tt.Height)
 		fmt.Printf("SVGStart test: %v\n", str)
 		if str != tt.desired {
 			t.Errorf("got %v   wanted %v", str, tt.desired)
@@ -48,10 +48,10 @@ func TestSVGRect(t *testing.T) {
 		height   int
 		desired  string
 	}{
-		{"t1", "white", "black", 3, 0, 0, 500, 500, `<rect fill="white" stroke="black" stroke-width="3" x="0" y="0" width="500" height="500" />`},
+		{"r1", "white", "black", 3, 0, 0, 500, 500, `<rect id="r1" fill="white" stroke="black" stroke-width="3" x="0" y="0" width="500" height="500" />`},
 	}
 	for _, tt := range line {
-		str := SVGRect(tt.fill, tt.stroke, tt.strokewt, tt.xorg, tt.yorg, tt.width, tt.height)
+		str := SVGRect(tt.Label, tt.fill, tt.stroke, tt.strokewt, tt.xorg, tt.yorg, tt.width, tt.height)
 		fmt.Printf("SVGRect test: %v\n", str)
 		if str != tt.desired {
 			t.Errorf("got %v   wanted %v", str, tt.desired)
