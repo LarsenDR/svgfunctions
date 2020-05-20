@@ -254,11 +254,11 @@ func ScaleMathToGraph(mval, mmin, mmax, gmin, gmax int64) (gval int64) {
 // LeftMargin is a set of functions to build the svg commands to draw the labels, scales and tics for the margin
 
 //DrawMarginTesting is a function
-func DrawMarginTesting(id, fill, stroke string, width, size int) (str string) {
-	//If testing this draws the margin box
-	str = SVGRect(id, fill, stroke, 1, 0, 0, width, size)
-	return str
-}
+// func DrawMarginTesting(id, fill, stroke string, width, size int) (str string) {
+// 	//If testing this draws the margin box
+// 	str = SVGRect(id, fill, stroke, 1, 0, 0, width, size)
+// 	return str
+// }
 
 //DrawMarginAxis is a function
 //func DrawMarginAxis(axis, stroke, fontFamily string, axisStrokeWidth, ticstrokeWidth, ticunit, ticsize, ticfontpx, size, length int) (str string) {
@@ -290,9 +290,9 @@ func DrawMarginTesting(id, fill, stroke string, width, size int) (str string) {
 // }
 
 //DrawMarginLabel is a function
-func DrawMarginLabel() {
-	// axis side label (margin units)
-}
+// func DrawMarginLabel() {
+// 	// axis side label (margin units)
+// }
 
 // BottomMargin is a set of functions to build the svg commands to draw the labels, scales and tics for the margin
 
