@@ -95,12 +95,12 @@ func TestSVGPoint(t *testing.T) {
 		r        int
 		desired  string
 	}{
-		{"t1", "red", "black", 2, 400, 350, 10, `<circle  stroke="black" stroke-width="2" fill="red" cx="400" cy="350" r="10" />`},
-		{"t1", "orange", "black", 2, 100, 350, 10, `<circle  stroke="black" stroke-width="2" fill="orange" cx="100" cy="350" r="10" />`},
-		{"t1", "blue", "black", 2, 200, 450, 10, `<circle  stroke="black" stroke-width="2" fill="blue" cx="200" cy="450" r="10" />`},
+		{"t1", "red", "black", 2, 400, 350, 10, `<circle id="t1" stroke="black" stroke-width="2" fill="red" cx="400" cy="350" r="10" />`},
+		{"t2", "orange", "black", 2, 100, 350, 10, `<circle id="t2" stroke="black" stroke-width="2" fill="orange" cx="100" cy="350" r="10" />`},
+		{"t3", "blue", "black", 2, 200, 450, 10, `<circle id="t3" stroke="black" stroke-width="2" fill="blue" cx="200" cy="450" r="10" />`},
 	}
 	for _, tt := range line {
-		str := SVGPoint(tt.fill, tt.stroke, tt.strokewt, tt.x, tt.y, tt.r)
+		str := SVGPoint(tt.Label, tt.fill, tt.stroke, tt.strokewt, tt.x, tt.y, tt.r)
 		fmt.Printf("SVGPoint test: %v\n", str)
 		if str != tt.desired {
 			t.Errorf("got %v   wanted %v", str, tt.desired)
