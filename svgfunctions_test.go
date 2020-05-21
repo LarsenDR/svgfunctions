@@ -100,10 +100,10 @@ func TestSVGPath4(t *testing.T) {
 		c3y      int
 		desired  string
 	}{
-		{"p1", "white", "black", 3, 600, 200, 600, 200, 600, 200, 600, 350, `<circle id="t1" stroke="black" stroke-width="2" fill="red" cx="400" cy="350" r="10" />`},
+		{"p1", "white", "black", 3, 600, 200, 600, 200, 600, 200, 600, 350, `<path id="p1" fill="white" stroke="black" stroke-width="3" d="M 600 200 C 600 200 600 200 600 350">`},
 	}
 	for _, tt := range line {
-		str := SVGPath4(tt.id, tt.fill, tt.stroke, tt.strokewt, tt.mx, tt.my, tt.c1x, tt.c1y, tt.c2x, tt.c2y, tt.c3x, tt.c3y)
+		str := SVGPath4(tt.Label, tt.fill, tt.stroke, tt.strokewt, tt.mx, tt.my, tt.c1x, tt.c1y, tt.c2x, tt.c2y, tt.c3x, tt.c3y)
 		fmt.Printf("SVGPath4 test: %v\n", str)
 		if str != tt.desired {
 			t.Errorf("got %v   wanted %v", str, tt.desired)
