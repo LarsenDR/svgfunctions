@@ -84,7 +84,7 @@ func TestSVGLine(t *testing.T) {
 	}
 }
 
-func TestSVGPath4(t *testing.T) {
+func TestSVGPath(t *testing.T) {
 	var line = []struct {
 		Label    string
 		fill     string
@@ -100,11 +100,11 @@ func TestSVGPath4(t *testing.T) {
 		c3y      int
 		desired  string
 	}{
-		{"p1", "white", "black", 3, 600, 200, 600, 200, 600, 200, 600, 350, `<path id="p1" fill="white" stroke="black" stroke-width="3" d="M 600 200 C 600 200 600 200 600 350" />`},
+		{"p1", "transparent", "black", 3, 600, 200, 600, 200, 600, 200, 600, 350, `<path d="M 600 200 C 600 200, 600 200, 600 350" id="p1" fill="transparent" stroke="black" stroke-width="3" />`},
 	}
 	for _, tt := range line {
-		str := SVGPath4(tt.Label, tt.fill, tt.stroke, tt.strokewt, tt.mx, tt.my, tt.c1x, tt.c1y, tt.c2x, tt.c2y, tt.c3x, tt.c3y)
-		fmt.Printf("SVGPath4 test: %v\n", str)
+		str := SVGPath(tt.Label, tt.fill, tt.stroke, tt.strokewt, tt.mx, tt.my, tt.c1x, tt.c1y, tt.c2x, tt.c2y, tt.c3x, tt.c3y)
+		fmt.Printf("SVGPath test: %v\n", str)
 		if str != tt.desired {
 			t.Errorf("got %v   wanted %v", str, tt.desired)
 
