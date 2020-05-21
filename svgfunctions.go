@@ -189,7 +189,7 @@ func SVGPoint(id, fill, stroke string, strokeWidth, x, y, r int) string {
 	return pointstr
 }
 
-//SVGPath4 is a function to write a svg text commant
+//SVGPath4 is a function to write a svg path comment
 func SVGPath4(id, fill, stroke string, strokewt, mx, my, c1x, c1y, c2x, c2y, c3x, c3y int) string {
 	var pathstr string
 	pathstr = fmt.Sprintf("<path id=\"%s\" fill=\"%s\" stroke=\"%s\" stroke-width=\"%d\" d=\"M %d %d C %d %d %d %d %d %d\" />",
@@ -197,7 +197,7 @@ func SVGPath4(id, fill, stroke string, strokewt, mx, my, c1x, c1y, c2x, c2y, c3x
 	return pathstr
 }
 
-//SVGText is a function to write a svg text commant
+//SVGText is a function to write a svg text comment
 func SVGText(x, y, fontSize, rotdeg int, fontFamily, textAnchor, label string) string {
 	var textstr string
 	textstr = fmt.Sprintf("<text x=\"%d\" y=\"%d\" font-family=\"%s\" font-size=\"%dpx\" text-anchor=\"%s\" alignment-baseline=\"middle\" transform=\"rotate(%d %d %d)\"> %s </text>",
