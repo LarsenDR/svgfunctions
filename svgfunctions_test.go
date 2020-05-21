@@ -84,24 +84,27 @@ func TestSVGLine(t *testing.T) {
 	}
 }
 
-func TestSVGPoint(t *testing.T) {
+func TestSVGPath4(t *testing.T) {
 	var line = []struct {
 		Label    string
 		fill     string
 		stroke   string
 		strokewt int
-		x        int
-		y        int
-		r        int
+		mx       int
+		my       int
+		c1x      int
+		c1y      int
+		c2x      int
+		c2y      int
+		c3x      int
+		c3y      int
 		desired  string
 	}{
-		{"t1", "red", "black", 2, 400, 350, 10, `<circle id="t1" stroke="black" stroke-width="2" fill="red" cx="400" cy="350" r="10" />`},
-		{"t2", "orange", "black", 2, 100, 350, 10, `<circle id="t2" stroke="black" stroke-width="2" fill="orange" cx="100" cy="350" r="10" />`},
-		{"t3", "blue", "black", 2, 200, 450, 10, `<circle id="t3" stroke="black" stroke-width="2" fill="blue" cx="200" cy="450" r="10" />`},
+		{"p1", "white", "black", 3, 600, 200, 600, 200, 600, 200, 600, 350, `<circle id="t1" stroke="black" stroke-width="2" fill="red" cx="400" cy="350" r="10" />`},
 	}
 	for _, tt := range line {
-		str := SVGPoint(tt.Label, tt.fill, tt.stroke, tt.strokewt, tt.x, tt.y, tt.r)
-		fmt.Printf("SVGPoint test: %v\n", str)
+		str := SVGPath4(tt.id, tt.fill, tt.stroke, tt.strokewt, tt.mx, tt.my, tt.c1x, tt.c1y, tt.c2x, tt.c2y, tt.c3x, tt.c3y)
+		fmt.Printf("SVGPath4 test: %v\n", str)
 		if str != tt.desired {
 			t.Errorf("got %v   wanted %v", str, tt.desired)
 
