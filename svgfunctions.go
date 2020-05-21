@@ -192,7 +192,8 @@ func SVGPoint(id, fill, stroke string, strokeWidth, x, y, r int) string {
 //SVGPath is a function to write a svg path comment
 func SVGPath(id, fill, stroke string, strokewt, mx, my, c1x, c1y, c2x, c2y, c3x, c3y int) string {
 	var pathstr string
-	pathstr = fmt.Sprintf("<path  d=\"M %d %d C %d %d, %d %d, %d %d\" id=\"%s\" fill=\"%s\" stroke=\"%s\" stroke-width=\"%d\" />",
+	pathstr = fmt.Sprintf(
+		"<path d=\"M %d %d C %d %d, %d %d, %d %d\" id=\"%s\" fill=\"%s\" stroke=\"%s\" stroke-width=\"%d\" />",
 		mx, my, c1x, c1y, c2x, c2y, c3x, c3y, id, fill, stroke, strokewt)
 	return pathstr
 }
